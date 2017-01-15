@@ -11,7 +11,9 @@ import { DetailsPage } from '../pages/details/details';
     DetailsPage,
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      // mode: 'ios',
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
