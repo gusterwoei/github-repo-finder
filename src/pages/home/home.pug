@@ -1,0 +1,33 @@
+ion-header
+  ion-navbar(color='primary')
+    ion-title Find Repository
+    ion-buttons(end)
+      button(ion-button='', icon-only='', color='white')
+        ion-icon(name='search')
+ion-content
+  //- username label
+  ion-list(inset='')
+    ion-item
+      ion-label Git Username
+      ion-input(type='text', [(ngModel)]='username')
+  //- padding
+  div(padding='')
+    button(ion-button='', block='', (click)='getRepos()') Search
+  //- in case repository not found
+  ion-item(*ngIf='!success')
+    | No Github repository found for {{username}}
+  //- list of github repositories
+  div(*ngIf='success')
+    ion-card(*ngFor='let repo of foundRepos', (click)='goToDetails(repo)')
+      ion-card-header
+        ion-item
+          ion-avatar(item-left='')
+            img(src='{{repo.owner.avatar_url}}')
+          |           {{repo.name}}
+      ion-card-content
+        .col
+          .row
+            | {{repo.description}}
+          .row
+            a(href='{{repo.html_url}}') {{repo.html_url}}
+          span(item-right='') {{repo.created_at | date}}
