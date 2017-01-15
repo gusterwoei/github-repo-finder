@@ -1,0 +1,1 @@
+This is a sample Github repository listing application using Ionic2
