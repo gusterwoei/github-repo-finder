@@ -1,6 +1,6 @@
 {
   "name": "Github Finder",
-  "app_id": "",
+  "app_id": "com.guster.githubfinder",
   "v2": true,
   "typescript": true
 }

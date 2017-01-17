@@ -11,55 +11,55 @@ import { DetailsPage } from '../details/details'
   Ionic pages and navigation.
   */
   @Component({
-    selector: 'page-home',
-    templateUrl: 'home.html',
-    providers: [GitHubService],
+     selector: 'page-home',
+     templateUrl: 'home.html',
+     providers: [GitHubService],
   })
   export class HomePage {
-    public foundRepos;
-    public username: string;
-    public success: boolean = true;
+     public foundRepos;
+     public username: string;
+     public success: boolean = true;
 
-    constructor(
-      public navCtrl: NavController, 
-      public loadingCtrl: LoadingController,
-      public navParams: NavParams,
-      private githubService: GitHubService) {
+     constructor(
+        public navCtrl: NavController, 
+        public loadingCtrl: LoadingController,
+        public navParams: NavParams,
+        private githubService: GitHubService) {
 
-    }
+     }
 
-    ionViewDidLoad() {
-      console.log('ionViewDidLoad HomePage');
-    }
+     ionViewDidLoad() {
+        console.log('ionViewDidLoad HomePage');
+     }
 
-    getRepos() {
-      // show loading bar
-      let loader = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
-      loader.present();
+     getRepos() {
+        // show loading bar
+        let loader = this.loadingCtrl.create({
+           content: 'Please wait...'
+        });
+        loader.present();
 
-      this.githubService.getRepos(this.username).subscribe(
-        data => {
-          this.foundRepos = data.json();
-        },
-        err => {
-          console.error(err);
-          this.success = false;
-          loader.dismiss();
-        },
-        () => {
-          console.log('getRepos completed');
-          this.success = true;
-          loader.dismiss();
-        },
-      );
-    }
+        this.githubService.getRepos(this.username).subscribe(
+           data => {
+              this.foundRepos = data.json();
+           },
+           err => {
+              console.error(err);
+              this.success = false;
+              loader.dismiss();
+           },
+           () => {
+              console.log('getRepos completed');
+              this.success = true;
+              loader.dismiss();
+           },
+           );
+     }
 
-    goToDetails(repo) {
-      this.navCtrl.push(DetailsPage, {
-        repo: repo
-      });
-    }
+     goToDetails(repo) {
+        this.navCtrl.push(DetailsPage, {
+           repo: repo
+        });
+     }
 
   }
