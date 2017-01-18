@@ -1,0 +1,14 @@
+{
+     "android": {
+         "debug": {
+
+         },
+         "release": {
+             "keystore": "keys/keystore.store",
+             "storePassword": "abc123",
+             "alias": "github-finder",
+             "password" : "abc123",
+             "keystoreType": ""
+         }
+     }
+ }

@@ -23,6 +23,7 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-pug": "^3.2.0",
+    "gulp-rename": "^1.2.2",
     "gulp-watch": "^4.3.11",
     "ionic-angular": "2.0.0-rc.5",
     "ionic-native": "2.2.11",
