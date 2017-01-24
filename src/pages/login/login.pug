@@ -3,13 +3,13 @@ ion-content(padding='')
     .row(style='text-align: center')
       img(src='assets/login.png', width='230', style='margin: auto')
     .col(padding='')
-      form#loginForm
+      form([formGroup]='loginForm', (ngSubmit)='login()')
         ion-item
           ion-label Username
-          ion-input(type='text', name='username', [(ngModel)]='username', required)
+          ion-input(type='text', formControlName='username', required)
         ion-item
           ion-label Password
-          ion-input(type='password', name='password', [(ngModel)]='password', required)
-        button(ion-button='', block='', (click)='login()') Login
+          ion-input(type='password', formControlName='password', required)
+        button(ion-button='', block='', [disabled]='!loginForm.valid') Login
       
 
